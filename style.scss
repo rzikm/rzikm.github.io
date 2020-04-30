@@ -283,7 +283,24 @@ footer {
   text-align: center;
 }
 
+// remove double margins introduced by extra div block around code block with syntax highlighting
+pre.highlight {
+  all: initial;
+}
+
+// keep tables texts from wrapping around
+table td, table th {
+  white-space: nowrap;
+  padding: 0px 5px;
+}
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
 @import "svg-icons";
+@import "bootstrap/bootstrap";
+
+// little hack to make all tables use bootstrap without extra manual annotation
+table {
+  @extend .table;
+}
